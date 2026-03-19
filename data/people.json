@@ -1,0 +1,37 @@
+[
+  {
+    "id": "p-1",
+    "name": "Rami",
+    "role": "Director of Digital Marketing",
+    "email": "rami@kent.edu",
+    "themes": ["design"]
+  },
+  {
+    "id": "p-2",
+    "name": "Katlyn",
+    "role": "Global Communications Lead",
+    "email": "katlyn@kent.edu",
+    "themes": ["global"]
+  },
+  {
+    "id": "p-3",
+    "name": "Gabrielle",
+    "role": "Health Sciences Marketing",
+    "email": "gabrielle@kent.edu",
+    "themes": ["health"]
+  },
+  {
+    "id": "p-4",
+    "name": "Sarah K.",
+    "role": "Senior Designer",
+    "email": "sarahk@kent.edu",
+    "themes": ["design", "global"]
+  },
+  {
+    "id": "p-5",
+    "name": "Jordan M.",
+    "role": "Content Strategist",
+    "email": "jordanm@kent.edu",
+    "themes": ["design", "health"]
+  }
+]

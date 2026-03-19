@@ -1,0 +1,56 @@
+{
+  "explorationLog": [
+    {
+      "id": "exp-g-001",
+      "type": "Question",
+      "title": "How do we maintain distinct messaging for Honors vs. Global programs post-consolidation?",
+      "details": "Honors and Global have very different audiences and value propositions. Under a centralized model, how do we ensure neither gets diluted? Need to explore dedicated content tracks vs. integrated campaigns.",
+      "raisedBy": "Katlyn",
+      "dateAdded": "2026-02-19",
+      "status": "Active"
+    },
+    {
+      "id": "exp-g-002",
+      "type": "Idea",
+      "title": "Shared storytelling framework with audience-specific channels",
+      "details": "What if we develop a shared narrative about experiential learning that both Honors and Global can customize for their specific audiences? Same framework, different executions.",
+      "raisedBy": "David L.",
+      "dateAdded": "2026-02-21",
+      "status": "Converging"
+    }
+  ],
+  "meetingNotes": [
+    {
+      "id": "mn-g-001",
+      "date": "2026-02-21",
+      "attendees": "Katlyn, David L., Mei W.",
+      "keyPoints": "Mapped current communication channels for both Honors and Global. Identified significant overlap in prospective student outreach. Discussed whether joint recruitment campaigns could work.",
+      "decisions": "Tentatively agreed that a shared content calendar would help identify overlap and collaboration opportunities.",
+      "questionsRaised": "Do Honors and Global currently share any prospective student populations? Need data from Admissions.",
+      "actionItems": "Katlyn to request enrollment overlap data from Admissions.\nDavid to outline a shared content calendar template.\nMei to compile Global's current campaign schedule.",
+      "notesLink": ""
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-g-001",
+      "task": "Request enrollment overlap data from Admissions",
+      "owner": "Katlyn",
+      "dueDate": "2026-03-01",
+      "status": "In Progress",
+      "source": "Meeting 2/21",
+      "priority": "High"
+    },
+    {
+      "id": "task-g-002",
+      "task": "Outline shared content calendar template",
+      "owner": "David L.",
+      "dueDate": "2026-03-05",
+      "status": "Not Started",
+      "source": "Meeting 2/21",
+      "priority": "Medium"
+    }
+  ],
+  "recommendations": [],
+  "themeNotes": "Key tension: maintaining distinct voices for Honors and Global while operating under a centralized marketing structure.\n\nPotential synergies: international student recruitment, experiential learning messaging, alumni engagement."
+}

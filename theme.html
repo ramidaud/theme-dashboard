@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Breakout — Theme Exploration Dashboard</title>
+  <meta name="description" content="Theme breakout page for exploring ideas, meeting notes, tasks, and recommendations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=13">
+</head>
+<body>
+  <div class="master-container">
+    <header class="hero" id="themeHeader"></header>
+
+  <div class="container">
+    <main id="app" class="data-wall">
+      <!-- People -->
+      <section class="section animate-in" id="peopleSection" style="grid-column: 1 / -1;"></section>
+
+      <!-- Exploration Log -->
+      <section class="section animate-in" id="explorationSection"></section>
+
+      <!-- Meeting Notes -->
+      <section class="section animate-in" id="meetingNotesSection"></section>
+
+      <!-- Tasks -->
+      <section class="section animate-in" id="tasksSection"></section>
+
+      <!-- Recommendations -->
+      <section class="section animate-in" id="recommendationsSection"></section>
+
+      <!-- Theme Notes -->
+      <section class="section animate-in" id="themeNotesSection"></section>
+    </main>
+  </div>
+
+  </div>
+
+  <script src="js/app.js?v=4" defer></script>
+  <script src="js/ai.js?v=4" defer></script>
+  <script src="js/theme.js?v=4" defer></script>
+</body>
+</html>

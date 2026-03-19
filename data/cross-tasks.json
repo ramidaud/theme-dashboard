@@ -1,0 +1,18 @@
+[
+  {
+    "id": "ct-001",
+    "task": "Draft shared content approval workflow proposal",
+    "owner": "Katlyn",
+    "dueDate": "2026-03-07",
+    "status": "In Progress",
+    "notes": "Needs input from all three theme leads before next all-hands."
+  },
+  {
+    "id": "ct-002",
+    "task": "Compile inventory of all college-specific marketing assets currently in use",
+    "owner": "Rami",
+    "dueDate": "2026-03-14",
+    "status": "Not Started",
+    "notes": "Each theme lead to survey their own area; Rami compiling."
+  }
+]

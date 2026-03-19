@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Large PDFs / brand assets (too big for GitHub)
+*.pdf
+
+# Editor files
+.vscode/
+.idea/
+
+# Local environment
+*.env
+*.log

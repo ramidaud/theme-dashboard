@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theme Exploration Dashboard</title>
+    <meta
+      name="description"
+      content="A brainstorming and preparation dashboard for university marketing theme exploration."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css?v=13" />
+  </head>
+  <body>
+    <header class="hero" style="background-image: url('images/overview-header.jpg');">
+      <div class="container">
+        <h1 class="hero-title">Theme Exploration Dashboard</h1>
+        <p class="hero-subtitle">
+          Preparing UCM to support university priorities and college/division
+          marketing needs through consolidation.
+        </p>
+      </div>
+    </header>
+
+    <div class="container">
+      <main id="app" class="data-wall">
+        <!-- Theme Status Cards -->
+        <section class="section animate-in" id="themeCards"></section>
+
+        <!-- Upcoming Meetings -->
+        <section class="section animate-in" id="meetingsSection"></section>
+
+        <!-- General / Facilitator Meeting Notes -->
+        <section class="section animate-in" id="globalMeetingNotesSection"></section>
+
+        <!-- Cross-Theme Patterns -->
+        <section class="section animate-in" id="patternsSection"></section>
+
+        <!-- Open Unknowns -->
+        <section class="section animate-in" id="unknownsSection"></section>
+
+        <!-- Emerging Cross-Theme Tasks -->
+        <section class="section animate-in" id="crossTasksSection"></section>
+      </main>
+    </div>
+
+    <script src="js/app.js?v=4" defer></script>
+    <script src="js/ai.js?v=4" defer></script>
+    <script src="js/overview.js?v=4" defer></script>
+  </body>
+</html>

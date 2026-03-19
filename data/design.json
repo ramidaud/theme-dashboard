@@ -1,0 +1,74 @@
+{
+  "explorationLog": [
+    {
+      "id": "exp-d-001",
+      "type": "Question",
+      "title": "Should we create a single design system or allow college-level variations?",
+      "details": "Central question for the design theme. A unified design system would ensure consistency but limit colleges' ability to express their unique identity. Need to explore what 'flexibility within consistency' looks like in practice.",
+      "raisedBy": "Rami",
+      "dateAdded": "2026-02-18",
+      "status": "Active"
+    },
+    {
+      "id": "exp-d-002",
+      "type": "Idea",
+      "title": "Tiered template system — university-wide base + college color/image overlays",
+      "details": "What if we created a core set of templates that every college uses, but with designated zones where they can insert their own photography, accent colors, and unit-specific messaging? This balances brand consistency with local ownership.",
+      "raisedBy": "Sarah K.",
+      "dateAdded": "2026-02-20",
+      "status": "Active"
+    },
+    {
+      "id": "exp-d-003",
+      "type": "Open Thread",
+      "title": "Who maintains templates after consolidation?",
+      "details": "If we centralize template creation, who handles updates and maintenance? Is this a dedicated role, or distributed across the team?",
+      "raisedBy": "Jordan M.",
+      "dateAdded": "2026-02-22",
+      "status": "Active"
+    }
+  ],
+  "meetingNotes": [
+    {
+      "id": "mn-d-001",
+      "date": "2026-02-20",
+      "attendees": "Rami, Sarah K., Jordan M.",
+      "keyPoints": "Discussed the tension between brand consistency and college identity. Agreed that a tiered approach could work. Reviewed examples from other universities that have consolidated marketing.",
+      "decisions": "Will create a working document comparing 3 template governance models before next meeting.",
+      "questionsRaised": "How do other Big East schools handle this? Can we get examples from Miami (OH) or Ball State?",
+      "actionItems": "Rami to research peer institution approaches.\nSarah to draft initial template tier structure.\nJordan to list all current college-specific templates in use.",
+      "notesLink": ""
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-d-001",
+      "task": "Research peer institution template governance models",
+      "owner": "Rami",
+      "dueDate": "2026-03-01",
+      "status": "In Progress",
+      "source": "Meeting 2/20 — design workflow discussion",
+      "priority": "High"
+    },
+    {
+      "id": "task-d-002",
+      "task": "Draft tiered template structure proposal",
+      "owner": "Sarah K.",
+      "dueDate": "2026-03-05",
+      "status": "Not Started",
+      "source": "Meeting 2/20",
+      "priority": "Medium"
+    },
+    {
+      "id": "task-d-003",
+      "task": "Inventory all active college-specific templates",
+      "owner": "Jordan M.",
+      "dueDate": "2026-03-07",
+      "status": "Not Started",
+      "source": "Meeting 2/20",
+      "priority": "Medium"
+    }
+  ],
+  "recommendations": [],
+  "themeNotes": "Initial focus areas:\n- Template governance & ownership\n- Design system flexibility vs. consistency\n- Asset management after consolidation\n\nKey contacts to loop in later: University Web Team, IT Design Services"
+}

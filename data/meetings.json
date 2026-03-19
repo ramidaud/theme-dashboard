@@ -1,0 +1,42 @@
+[
+  {
+    "id": "mtg-001",
+    "date": "2026-02-26",
+    "time": "10:00 AM",
+    "theme": "design",
+    "title": "Design Workflow Standards Review",
+    "location": "Zoom — link in calendar"
+  },
+  {
+    "id": "mtg-002",
+    "date": "2026-02-26",
+    "time": "2:00 PM",
+    "theme": "global",
+    "title": "Global/Honors Messaging Alignment",
+    "location": "Room 214, University Hall"
+  },
+  {
+    "id": "mtg-003",
+    "date": "2026-02-27",
+    "time": "11:00 AM",
+    "theme": "health",
+    "title": "Health Communications Audit Kickoff",
+    "location": "Zoom — link in calendar"
+  },
+  {
+    "id": "mtg-004",
+    "date": "2026-02-28",
+    "time": "9:30 AM",
+    "theme": "design",
+    "title": "Brand Template Consolidation",
+    "location": "Room 105, Kent Hall"
+  },
+  {
+    "id": "mtg-005",
+    "date": "2026-03-02",
+    "time": "1:00 PM",
+    "theme": "global",
+    "title": "Cross-College Content Strategy",
+    "location": "Virtual — Teams"
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "explorationLog": [
+    {
+      "id": "exp-h-001",
+      "type": "Question",
+      "title": "How do health-related programs communicate accreditation requirements differently from other colleges?",
+      "details": "Health programs (Nursing, Public Health, Exercise Science) often have specific accreditation-driven messaging requirements. A centralized marketing team needs to understand these constraints before designing workflows.",
+      "raisedBy": "Gabrielle",
+      "dateAdded": "2026-02-19",
+      "status": "Active"
+    },
+    {
+      "id": "exp-h-002",
+      "type": "Open Thread",
+      "title": "Clinical placement marketing — who owns this?",
+      "details": "Clinical placements are a key recruiting differentiator for health programs. Currently, individual departments handle this messaging. Post-consolidation, does centralized marketing take this on, or does it stay local?",
+      "raisedBy": "Chris P.",
+      "dateAdded": "2026-02-23",
+      "status": "Needs Discussion"
+    }
+  ],
+  "meetingNotes": [],
+  "tasks": [
+    {
+      "id": "task-h-001",
+      "task": "Document accreditation-specific messaging requirements for each health program",
+      "owner": "Gabrielle",
+      "dueDate": "2026-03-10",
+      "status": "Not Started",
+      "source": "Initial theme planning",
+      "priority": "High"
+    }
+  ],
+  "recommendations": [],
+  "themeNotes": "Health theme is still in early exploration. Need to schedule first full team meeting.\n\nComplexity factors:\n- Accreditation requirements\n- Clinical placement marketing\n- Multiple distinct programs (Nursing, Public Health, Exercise Science, etc.)\n- Strong existing college identity"
+}

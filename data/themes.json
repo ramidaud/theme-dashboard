@@ -1,0 +1,32 @@
+{
+  "design": {
+    "name": "Design",
+    "slug": "design",
+    "facilitator": "Rami",
+    "accent": "#2C8ECD",
+    "status": "Active Exploration",
+    "participants": ["Rami", "Sarah K.", "Jordan M."],
+    "stakeholders": ["VP of Communications", "Creative Director"]
+  },
+  "global": {
+    "name": "Global/Honors",
+    "slug": "global",
+    "facilitator": "Katlyn",
+    "accent": "#EFAB00",
+    "status": "Active Exploration",
+    "participants": ["Katlyn", "David L.", "Mei W."],
+    "stakeholders": ["Dean of Honors College", "Global Education Director"]
+  },
+  "health": {
+    "name": "Health",
+    "slug": "health",
+    "facilitator": "Gabrielle",
+    "accent": "#E07A3A",
+    "status": "Needs Discussion",
+    "participants": ["Gabrielle", "Chris P.", "Anika R."],
+    "stakeholders": [
+      "College of Public Health Dean",
+      "Nursing Program Director"
+    ]
+  }
+}

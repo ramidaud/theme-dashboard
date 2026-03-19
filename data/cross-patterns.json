@@ -1,0 +1,18 @@
+[
+  {
+    "id": "cp-001",
+    "observation": "Both Design and Health teams are independently exploring how to handle college-specific templates vs. university-wide templates. We should align on a shared template governance model.",
+    "sourceTheme": "design",
+    "relevantTo": ["design", "health"],
+    "dateAdded": "2026-02-20",
+    "addedBy": "Rami"
+  },
+  {
+    "id": "cp-002",
+    "observation": "All three themes keep surfacing the question of who approves content once we're centralized — this might need a shared 'approval workflow' recommendation.",
+    "sourceTheme": "global",
+    "relevantTo": ["design", "global", "health"],
+    "dateAdded": "2026-02-22",
+    "addedBy": "Katlyn"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "unk-001",
+    "question": "Will each college retain a dedicated marketing liaison, or will all requests go through a central intake system?",
+    "dateRaised": "2026-02-18",
+    "themesAffected": ["design", "global", "health"],
+    "updates": "Waiting on VP meeting scheduled for March."
+  },
+  {
+    "id": "unk-002",
+    "question": "What is the final reporting structure for consolidated marketing staff? Do we report to colleges or to the central UCM director?",
+    "dateRaised": "2026-02-19",
+    "themesAffected": ["design", "global", "health"],
+    "updates": ""
+  },
+  {
+    "id": "unk-003",
+    "question": "Will the university adopt a single CMS platform, or will colleges continue using their current systems during transition?",
+    "dateRaised": "2026-02-21",
+    "themesAffected": ["design"],
+    "updates": "IT governance working group may address this."
+  }
+]
