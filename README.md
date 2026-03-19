@@ -4,9 +4,7 @@ A brainstorming and preparation dashboard for a university marketing team explor
 
 ## 🌐 Live Dashboard
 
-👉 **[Open Dashboard](https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/)**
-
-> Replace the URL above with your actual GitHub Pages link after deployment.
+👉 **[Open Dashboard](https://ramidaud.github.io/theme-dashboard/)**
 
 ## Getting Started
 
