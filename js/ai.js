@@ -131,7 +131,8 @@ Answer the user's question based on this data. Be concise, helpful, and specific
 
     if (!response.ok) {
       const err = await response.json();
-      throw new Error(err.error?.message || 'API request failed');
+      if (response.status === 429) throw new Error('⏳ Rate limit reached — please wait a moment and try again.');
+      throw new Error(err.error || 'API request failed');
     }
 
     const result = await response.json();
@@ -234,7 +235,8 @@ Be specific and extract only what is clearly stated or strongly implied. Keep it
 
     if (!response.ok) {
       const err = await response.json();
-      throw new Error(err.error?.message || 'API request failed');
+      if (response.status === 429) throw new Error('Rate limit reached — please wait a moment and try again.');
+      throw new Error(err.error || 'API request failed');
     }
 
     const result = await response.json();
@@ -374,7 +376,8 @@ window.geminiRequest = async function(messages) {
   });
   if (!response.ok) {
     const err = await response.json();
-    throw new Error(err.error?.message || 'API request failed');
+    if (response.status === 429) throw new Error('Rate limit reached — please wait a moment and try again.');
+    throw new Error(err.error || 'API request failed');
   }
   return await response.json();
 };
