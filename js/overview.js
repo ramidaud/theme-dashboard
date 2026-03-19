@@ -734,8 +734,6 @@ function renderOverviewAI() {
   const section = document.getElementById('overviewAICard');
   if (!section) return;
 
-  const apiKey = localStorage.getItem('ted-gemini-key') || '';
-  
   let html = `
     <div style="background: rgba(0,0,0,0.2); padding: var(--space-4) var(--space-6); border-bottom: 1px solid var(--color-border); display: flex; align-items: center; justify-content: space-between;">
       <h2 style="margin: 0; font-size: var(--text-lg); display: flex; align-items: center; gap: 8px;">✨ Dashboard Assistant</h2>
@@ -743,15 +741,7 @@ function renderOverviewAI() {
     <div id="embeddedAiMessages" style="flex: 1; padding: var(--space-6); overflow-y: auto; display: flex; flex-direction: column; gap: var(--space-4); max-height: 350px;">
   `;
 
-  if (!apiKey) {
-    html += `
-      <div class="ai-no-key">
-        <div style="font-size:2.5rem;margin-bottom:var(--space-2);">🔑</div>
-        <h3 style="margin-bottom:var(--space-2);">API Key Required</h3>
-        <p>Add your Gemini API key in the Dashboard Settings (⚙️) to activate the intelligent assistant.</p>
-      </div>
-    `;
-  } else if (embeddedAiChatHistory.length === 0) {
+  if (embeddedAiChatHistory.length === 0) {
     html += `
       <div class="ai-no-key">
         <div style="font-size:2.5rem;margin-bottom:var(--space-2);">✨</div>
@@ -773,8 +763,8 @@ function renderOverviewAI() {
   html += `
     </div>
     <div style="padding: var(--space-4); border-top: 1px solid var(--color-border); background: var(--color-surface); display: flex; gap: var(--space-2); margin-top: auto;">
-      <input type="text" id="embeddedAiInput" style="flex: 1; background: rgba(0,0,0,0.2); border: 1px solid var(--color-border); color: #fff; padding: var(--space-2) var(--space-3); border-radius: var(--radius-md);" placeholder="Message Assistant..." ${!apiKey ? 'disabled' : ''} />
-      <button class="btn btn-primary" id="embeddedAiSend" ${!apiKey ? 'disabled' : ''}>Send</button>
+      <input type="text" id="embeddedAiInput" style="flex: 1; background: rgba(0,0,0,0.2); border: 1px solid var(--color-border); color: #fff; padding: var(--space-2) var(--space-3); border-radius: var(--radius-md);" placeholder="Message Assistant..." />
+      <button class="btn btn-primary" id="embeddedAiSend">Send</button>
     </div>
   `;
 
@@ -810,9 +800,6 @@ async function sendEmbeddedAIMessage() {
   if (!input) return;
   const query = input.value.trim();
   if (!query) return;
-
-  const apiKey = localStorage.getItem('ted-gemini-key') || '';
-  if (!apiKey) return;
 
   input.value = '';
   embeddedAiChatHistory.push({ role: 'user', content: query });

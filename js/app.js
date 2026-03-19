@@ -513,27 +513,6 @@ function openSettings() {
       </div>
       <div class="settings-body">
         <div class="form-group">
-          <label>Gemini API Key</label>
-          ${
-            hasKey
-              ? `
-            <div class="api-key-display">
-              <span class="key-text">${apiKey.substring(0, 8)}${"•".repeat(20)}</span>
-              <button class="btn btn-sm btn-danger" id="clearApiKey">Clear</button>
-            </div>
-          `
-              : `
-            <input type="password" class="form-input" id="apiKeyInput" placeholder="Paste your Gemini API key here" value="">
-            <button class="btn btn-primary btn-sm mt-2" id="saveApiKey">Save Key</button>
-          `
-          }
-          <p class="settings-info">
-            Get a free API key from <a href="https://aistudio.google.com/apikey" target="_blank">Google AI Studio</a>.
-            Your key is stored only in your browser and sent exclusively to Google's Gemini API.
-          </p>
-        </div>
-        
-        <div class="form-group" style="margin-top: var(--space-6); padding-top: var(--space-6); border-top: 1px solid var(--color-border-light);">
           <label>NotebookLM Integration</label>
           <p class="settings-info mb-2">Add a link to your NotebookLM Notebook to show a shortcut button on Theme pages.</p>
           <div style="display:flex;gap:var(--space-2);">
