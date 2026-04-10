@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   renderHeader();
   renderPeople();
+  renderProofPoints();
   renderExplorationLog();
   renderMeetingNotes();
   renderTasks();
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (e.detail.collection === currentTheme || e.detail.collection === 'themes') {
       renderHeader();
       renderPeople();
+      renderProofPoints();
       renderExplorationLog();
       renderMeetingNotes();
       renderTasks();
@@ -106,6 +108,63 @@ function renderPeople() {
     `;
   }
   
+  section.innerHTML = html;
+}
+
+function renderProofPoints() {
+  const section = document.getElementById('proofPointsSection');
+  const data = store.getThemeData(currentTheme);
+  
+  const competitors = data.competitors || [];
+  const keyMetrics = data.keyMetrics || [];
+  const partnerships = data.partnerships || [];
+
+  if (competitors.length === 0 && keyMetrics.length === 0 && partnerships.length === 0) {
+    section.innerHTML = ``;
+    return;
+  }
+
+  let html = `
+    <div class="section-header">
+      <h2>Strategic Proof Points</h2>
+    </div>
+    <div class="grid-3 stagger-children" style="margin-bottom:var(--space-8);">
+  `;
+
+  if (keyMetrics.length > 0) {
+    html += `
+      <div class="card" style="padding: var(--space-4); border-top: 3px solid var(--color-success);">
+        <h4 style="margin-bottom: var(--space-3); display: flex; align-items: center; gap: 8px;">🏆 Key Metrics</h4>
+        <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+          ${keyMetrics.map(m => `<div style="background: var(--color-surface-muted); padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm); font-size: var(--text-sm);">${escapeHtml(m)}</div>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  if (partnerships.length > 0) {
+    html += `
+      <div class="card" style="padding: var(--space-4); border-top: 3px solid var(--color-primary);">
+        <h4 style="margin-bottom: var(--space-3); display: flex; align-items: center; gap: 8px;">🎯 Targets & Partners</h4>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-2);">
+          ${partnerships.map(p => `<span class="badge badge-blue">${escapeHtml(p)}</span>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  if (competitors.length > 0) {
+    html += `
+      <div class="card" style="padding: var(--space-4); border-top: 3px solid var(--color-danger);">
+        <h4 style="margin-bottom: var(--space-3); display: flex; align-items: center; gap: 8px;">⚔️ Competitors</h4>
+        <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+          ${competitors.map(c => `<div style="border-left: 2px solid var(--color-danger); padding-left: var(--space-2); font-size: var(--text-sm);">${escapeHtml(c)}</div>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  html += `</div>`;
   section.innerHTML = html;
 }
 

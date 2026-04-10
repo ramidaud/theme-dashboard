@@ -187,6 +187,11 @@ function buildThemeContext() {
     context += `Status: ${meta.status}\n`;
     context += `Participants: ${(meta.participants || []).join(', ')}\n`;
 
+    if (data.competitors?.length) context += `Competitors to benchmark against: ${data.competitors.join(', ')}\n`;
+    if (data.keyMetrics?.length) context += `Key Metrics & Verified Claims: ${data.keyMetrics.join(', ')}\n`;
+    if (data.partnerships?.length) context += `Targets & Partners: ${data.partnerships.join(', ')}\n`;
+
+
     if (data.explorationLog?.length) {
       context += `\n### Exploration Log:\n`;
       data.explorationLog.forEach(e => {
