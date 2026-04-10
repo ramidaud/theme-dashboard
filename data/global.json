@@ -1,56 +1,73 @@
 {
   "explorationLog": [
     {
-      "id": "exp-g-001",
+      "id": "exp-g-1",
+      "type": "Idea",
+      "title": "Excellence Without Borders",
+      "details": "Proposed messaging framework drafted by UCM to communicate the value proposition of the newly merged college.",
+      "raisedBy": "UCM Team",
+      "dateAdded": "2026-01-23",
+      "status": "Active"
+    },
+    {
+      "id": "exp-g-2",
       "type": "Question",
-      "title": "How do we maintain distinct messaging for Honors vs. Global programs post-consolidation?",
-      "details": "Honors and Global have very different audiences and value propositions. Under a centralized model, how do we ensure neither gets diluted? Need to explore dedicated content tracks vs. integrated campaigns.",
-      "raisedBy": "Katlyn",
+      "title": "Explaining advisor shift to current students?",
+      "details": "The holistic advising experience has been a key marketing point. How do we explain the loss of the two-advisor benefit to current students?",
+      "raisedBy": "Paulo",
       "dateAdded": "2026-02-19",
       "status": "Active"
     },
     {
-      "id": "exp-g-002",
-      "type": "Idea",
-      "title": "Shared storytelling framework with audience-specific channels",
-      "details": "What if we develop a shared narrative about experiential learning that both Honors and Global can customize for their specific audiences? Same framework, different executions.",
-      "raisedBy": "David L.",
-      "dateAdded": "2026-02-21",
+      "id": "exp-g-3",
+      "type": "Insight",
+      "title": "Honors vs. Global culture integration",
+      "details": "Honors is strong but conventional; Global is more innovative. The merged value proposition must integrate both seamlessly. Community building is the key connector.",
+      "raisedBy": "Paulo",
+      "dateAdded": "2026-04-03",
       "status": "Converging"
-    }
-  ],
-  "meetingNotes": [
-    {
-      "id": "mn-g-001",
-      "date": "2026-02-21",
-      "attendees": "Katlyn, David L., Mei W.",
-      "keyPoints": "Mapped current communication channels for both Honors and Global. Identified significant overlap in prospective student outreach. Discussed whether joint recruitment campaigns could work.",
-      "decisions": "Tentatively agreed that a shared content calendar would help identify overlap and collaboration opportunities.",
-      "questionsRaised": "Do Honors and Global currently share any prospective student populations? Need data from Admissions.",
-      "actionItems": "Katlyn to request enrollment overlap data from Admissions.\nDavid to outline a shared content calendar template.\nMei to compile Global's current campaign schedule.",
-      "notesLink": ""
     }
   ],
   "tasks": [
     {
-      "id": "task-g-001",
-      "task": "Request enrollment overlap data from Admissions",
-      "owner": "Katlyn",
-      "dueDate": "2026-03-01",
+      "id": "task-g-1",
+      "task": "Review 'Excellence Without Borders' framing organically",
+      "owner": "Paulo",
+      "dueDate": "2026-04-15",
       "status": "In Progress",
-      "source": "Meeting 2/21",
-      "priority": "High"
+      "source": "Strategy Meeting"
     },
     {
-      "id": "task-g-002",
-      "task": "Outline shared content calendar template",
-      "owner": "David L.",
-      "dueDate": "2026-03-05",
+      "id": "task-g-2",
+      "task": "Expand targeting for Active Markets",
+      "owner": "UCM Team",
+      "dueDate": "2026-05-01",
       "status": "Not Started",
-      "source": "Meeting 2/21",
-      "priority": "Medium"
+      "source": "Strategy Meeting"
     }
   ],
-  "recommendations": [],
-  "themeNotes": "Key tension: maintaining distinct voices for Honors and Global while operating under a centralized marketing structure.\n\nPotential synergies: international student recruitment, experiential learning messaging, alumni engagement."
+  "recommendations": [
+    {
+      "id": "rec-g-1",
+      "title": "Leverage Study Abroad Metrics",
+      "why": "With 24% of honors students currently traveling, there is a clear opportunity to increase global engagement inside the honors cohort.",
+      "status": "Under Review"
+    },
+    {
+      "id": "rec-g-2",
+      "title": "Shift to Single Holistic Advisor Messaging",
+      "why": "Eliminate the two-advisor model in marketing materials moving forward to ensure alignment with operational constraints.",
+      "status": "Accepted"
+    }
+  ],
+  "themeNotes": "# Global & Honors Merged Focus\n\n- Active markets identified: Rwanda, India, Brazil, Kyrgyzstan.\n- Upcoming locations: Florence, Kazakhstan.\n- Focus on building 'community' as the bridge that connects the Honors and Global student experiences.",
+  "meetingNotes": [
+    {
+      "id": "mn-g-1",
+      "date": "2026-04-03",
+      "title": "Global Theme Strategy Meeting",
+      "attendees": "Paulo, UCM Team",
+      "summary": "Focused heavily on establishing a value proposition for the merged College. Dropped 'Excellence Without Borders' framing for review. Addressed ongoing logistical hurdles regarding academic advisory pivots."
+    }
+  ]
 }

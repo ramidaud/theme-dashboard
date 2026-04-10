@@ -1,74 +1,81 @@
 {
   "explorationLog": [
     {
-      "id": "exp-d-001",
-      "type": "Question",
-      "title": "Should we create a single design system or allow college-level variations?",
-      "details": "Central question for the design theme. A unified design system would ensure consistency but limit colleges' ability to express their unique identity. Need to explore what 'flexibility within consistency' looks like in practice.",
-      "raisedBy": "Rami",
-      "dateAdded": "2026-02-18",
+      "id": "exp-d-1",
+      "type": "Insight",
+      "title": "Two Student Pathways into Design",
+      "details": "Students fall into two categories: Early Fascination (knew they wanted design early) and Late Discovery (transferred or found later). Need messaging supporting both.",
+      "raisedBy": "Kaitlyn",
+      "dateAdded": "2026-02-24",
       "status": "Active"
     },
     {
-      "id": "exp-d-002",
+      "id": "exp-d-2",
       "type": "Idea",
-      "title": "Tiered template system — university-wide base + college color/image overlays",
-      "details": "What if we created a core set of templates that every college uses, but with designated zones where they can insert their own photography, accent colors, and unit-specific messaging? This balances brand consistency with local ownership.",
-      "raisedBy": "Sarah K.",
-      "dateAdded": "2026-02-20",
-      "status": "Active"
+      "title": "Reframing \"Design Excellence\"",
+      "details": "Excellence shouldn't be defined just by comparing to SCAD or RISD, but by interdisciplinary mobility, career outcomes, and intellectual curiosity.",
+      "raisedBy": "SW",
+      "dateAdded": "2026-02-24",
+      "status": "Converging"
     },
     {
-      "id": "exp-d-003",
-      "type": "Open Thread",
-      "title": "Who maintains templates after consolidation?",
-      "details": "If we centralize template creation, who handles updates and maintenance? Is this a dedicated role, or distributed across the team?",
-      "raisedBy": "Jordan M.",
-      "dateAdded": "2026-02-22",
+      "id": "exp-d-3",
+      "type": "Question",
+      "title": "Visual Evidence of Hands-on Experience?",
+      "details": "Alumni stories were explicitly requested by students, wanting to see design in action. How do we produce this cohesively?",
+      "raisedBy": "Liz",
+      "dateAdded": "2026-02-24",
       "status": "Active"
-    }
-  ],
-  "meetingNotes": [
-    {
-      "id": "mn-d-001",
-      "date": "2026-02-20",
-      "attendees": "Rami, Sarah K., Jordan M.",
-      "keyPoints": "Discussed the tension between brand consistency and college identity. Agreed that a tiered approach could work. Reviewed examples from other universities that have consolidated marketing.",
-      "decisions": "Will create a working document comparing 3 template governance models before next meeting.",
-      "questionsRaised": "How do other Big East schools handle this? Can we get examples from Miami (OH) or Ball State?",
-      "actionItems": "Rami to research peer institution approaches.\nSarah to draft initial template tier structure.\nJordan to list all current college-specific templates in use.",
-      "notesLink": ""
     }
   ],
   "tasks": [
     {
-      "id": "task-d-001",
-      "task": "Research peer institution template governance models",
-      "owner": "Rami",
-      "dueDate": "2026-03-01",
+      "id": "task-d-1",
+      "task": "Identify differentiators through competitor research",
+      "owner": "UCM Team",
+      "dueDate": "2026-03-10",
+      "status": "Not Started",
+      "source": "Strategy Meeting"
+    },
+    {
+      "id": "task-d-2",
+      "task": "Upload comprehensive research slides from focus groups",
+      "owner": "Liz",
+      "dueDate": "2026-02-28",
       "status": "In Progress",
-      "source": "Meeting 2/20 — design workflow discussion",
-      "priority": "High"
+      "source": "Strategy Meeting"
     },
     {
-      "id": "task-d-002",
-      "task": "Draft tiered template structure proposal",
-      "owner": "Sarah K.",
-      "dueDate": "2026-03-05",
+      "id": "task-d-3",
+      "task": "Develop cohesive CTA language for design stories",
+      "owner": "Kaitlyn",
+      "dueDate": "2026-03-15",
       "status": "Not Started",
-      "source": "Meeting 2/20",
-      "priority": "Medium"
-    },
-    {
-      "id": "task-d-003",
-      "task": "Inventory all active college-specific templates",
-      "owner": "Jordan M.",
-      "dueDate": "2026-03-07",
-      "status": "Not Started",
-      "source": "Meeting 2/20",
-      "priority": "Medium"
+      "source": "Strategy Meeting"
     }
   ],
-  "recommendations": [],
-  "themeNotes": "Initial focus areas:\n- Template governance & ownership\n- Design system flexibility vs. consistency\n- Asset management after consolidation\n\nKey contacts to loop in later: University Web Team, IT Design Services"
+  "recommendations": [
+    {
+      "id": "rec-d-1",
+      "title": "Focus Differentiators on Flexibility over Refinement",
+      "why": "Kent State fosters adaptability and shifting disciplines unlike institutions tracking students directly into narrow artistic lanes.",
+      "status": "Under Review"
+    },
+    {
+      "id": "rec-d-2",
+      "title": "Highlight Early UXD and Embedded Engineering",
+      "why": "These applied disciplines distinctly elevate our design narrative and match modern career outcome demands.",
+      "status": "Accepted"
+    }
+  ],
+  "themeNotes": "# Design Theme Core Tenets\n\n- Emphasize interdisciplinary collaboration across eight design disciplines.\n- Build narratives that connect to career outcome alignment (UXD, systems design).\n- Primary audience: Prospective students & parents. Secondary: Exploratory undeclared students.",
+  "meetingNotes": [
+    {
+      "id": "mn-d-1",
+      "date": "2026-02-24",
+      "title": "Design Excellence Strategy Meeting",
+      "attendees": "Liz, Kaitlyn, SW, JZ",
+      "summary": "Centered on redefining Design Excellence via focus groups. Discussed the two pathways into design, prioritizing versatility over artistic refinement, and identified gaps where alumni stories are needed to show design in action."
+    }
+  ]
 }

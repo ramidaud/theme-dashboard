@@ -1,36 +1,73 @@
 {
   "explorationLog": [
     {
-      "id": "exp-h-001",
-      "type": "Question",
-      "title": "How do health-related programs communicate accreditation requirements differently from other colleges?",
-      "details": "Health programs (Nursing, Public Health, Exercise Science) often have specific accreditation-driven messaging requirements. A centralized marketing team needs to understand these constraints before designing workflows.",
-      "raisedBy": "Gabrielle",
-      "dateAdded": "2026-02-19",
+      "id": "exp-h-1",
+      "type": "Insight",
+      "title": "Brain Health Pilot Grant ROI",
+      "details": "The grant program (2018-2025) funded 45 grants yielding a 15-Fold ROI in external applications. Need to showcase this in research impact metrics.",
+      "raisedBy": "UCM Team",
+      "dateAdded": "2026-03-03",
       "status": "Active"
     },
     {
-      "id": "exp-h-002",
-      "type": "Open Thread",
-      "title": "Clinical placement marketing — who owns this?",
-      "details": "Clinical placements are a key recruiting differentiator for health programs. Currently, individual departments handle this messaging. Post-consolidation, does centralized marketing take this on, or does it stay local?",
-      "raisedBy": "Chris P.",
-      "dateAdded": "2026-02-23",
-      "status": "Needs Discussion"
+      "id": "exp-h-2",
+      "type": "Idea",
+      "title": "Boost 'Brains on Tap' Promotion",
+      "details": "Community outreach program in partnership with NEOMED and Ideastream is getting great press. Should we elevate this to flagship status?",
+      "raisedBy": "UCM Team",
+      "dateAdded": "2026-03-03",
+      "status": "Converging"
+    },
+    {
+      "id": "exp-h-3",
+      "type": "Question",
+      "title": "Is Podiatry Global Impact Claim still verified?",
+      "details": "Claiming it is 'internally respected medical institution in the world' via AACPM. Need to definitively confirm this is still accurate for 2026 materials.",
+      "raisedBy": "UCM Team",
+      "dateAdded": "2026-03-03",
+      "status": "Active"
     }
   ],
-  "meetingNotes": [],
   "tasks": [
     {
-      "id": "task-h-001",
-      "task": "Document accreditation-specific messaging requirements for each health program",
-      "owner": "Gabrielle",
-      "dueDate": "2026-03-10",
+      "id": "task-h-1",
+      "task": "Confirm Podiatry global impact status with AACPM",
+      "owner": "UCM Team",
+      "dueDate": "2026-03-20",
       "status": "Not Started",
-      "source": "Initial theme planning",
-      "priority": "High"
+      "source": "Fact Checking"
+    },
+    {
+      "id": "task-h-2",
+      "task": "Highlight online MPH #10 ranking creatively",
+      "owner": "UCM Team",
+      "dueDate": "2026-04-01",
+      "status": "In Progress",
+      "source": "Public Health Promotion"
     }
   ],
-  "recommendations": [],
-  "themeNotes": "Health theme is still in early exploration. Need to schedule first full team meeting.\n\nComplexity factors:\n- Accreditation requirements\n- Clinical placement marketing\n- Multiple distinct programs (Nursing, Public Health, Exercise Science, etc.)\n- Strong existing college identity"
+  "recommendations": [
+    {
+      "id": "rec-h-1",
+      "title": "Focus Nursing messaging on 92% pass rate & 5 campuses",
+      "why": "Demonstrates both high academic quality and widespread regional accessibility for BSN students.",
+      "status": "Accepted"
+    },
+    {
+      "id": "rec-h-2",
+      "title": "Feature the Neurodiversity Research Initiative",
+      "why": "Interdisciplinary consortium aligns with our brand values of inclusive and innovative health research.",
+      "status": "Under Review"
+    }
+  ],
+  "themeNotes": "# Health Facts & Figures\n\n- Brain Health: Trauma, PTSD, Memory learning at national top levels.\n- Public Health: Top 10 Online MPH via Fortune.\n- Nursing: 92% NCLEX rate, #62 Best Online program nationwide.",
+  "meetingNotes": [
+    {
+      "id": "mn-h-1",
+      "date": "2026-03-03",
+      "title": "Health Facts and Theme Alignment",
+      "attendees": "UCM Team",
+      "summary": "Reviewed 2026 statistical updates across Brain Health, College of Public Health, Nursing, and Podiatry to establish the baseline figures for current marketing."
+    }
+  ]
 }

@@ -2,31 +2,32 @@
   "design": {
     "name": "Design",
     "slug": "design",
-    "facilitator": "Rami",
+    "facilitator": "Liz",
     "accent": "#2C8ECD",
     "status": "Active Exploration",
-    "participants": ["Rami", "Sarah K.", "Jordan M."],
-    "stakeholders": ["VP of Communications", "Creative Director"]
+    "participants": ["Liz", "Kaitlyn", "SW", "JZ", "UCM Team"],
+    "stakeholders": ["CAE Focus Groups", "CCI Focus Groups"]
   },
   "global": {
     "name": "Global/Honors",
     "slug": "global",
-    "facilitator": "Katlyn",
+    "facilitator": "Paulo",
     "accent": "#EFAB00",
-    "status": "Active Exploration",
-    "participants": ["Katlyn", "David L.", "Mei W."],
-    "stakeholders": ["Dean of Honors College", "Global Education Director"]
+    "status": "Needs Discussion",
+    "participants": ["Paulo", "UCM Team"],
+    "stakeholders": ["Honors College", "Global Education"]
   },
   "health": {
     "name": "Health",
     "slug": "health",
-    "facilitator": "Gabrielle",
+    "facilitator": "UCM Team",
     "accent": "#E07A3A",
-    "status": "Needs Discussion",
-    "participants": ["Gabrielle", "Chris P.", "Anika R."],
+    "status": "Converging",
+    "participants": ["UCM Team", "Brain Health Research Institute"],
     "stakeholders": [
       "College of Public Health Dean",
-      "Nursing Program Director"
+      "Nursing Program Director",
+      "College of Podiatric Medicine"
     ]
   }
 }
