@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=13" />
+    <link rel="stylesheet" href="css/styles.css?v=14" />
   </head>
   <body>
     <div class="master-container">
@@ -27,11 +27,11 @@
 
     <div class="container">
       <main id="app" class="data-wall">
+        <!-- At a Glance Stats -->
+        <section class="section animate-in" id="atAGlanceSection" style="grid-column: 1 / -1;"></section>
+
         <!-- Theme Status Cards -->
         <section class="section animate-in" id="themeCards" style="grid-column: 1 / -1;"></section>
-
-        <!-- Embedded AI Chatbot -->
-        <section class="section animate-in card card-accent" id="overviewAICard" style="--accent-color: #8b5cf6; display: flex; flex-direction: column; min-height: 400px; padding: 0; overflow: hidden;"></section>
 
         <!-- Upcoming Meetings -->
         <section class="section animate-in" id="meetingsSection"></section>
@@ -39,21 +39,19 @@
         <!-- General / Facilitator Meeting Notes -->
         <section class="section animate-in" id="globalMeetingNotesSection"></section>
 
-        <!-- Cross-Theme Patterns -->
-        <section class="section animate-in" id="patternsSection"></section>
-
-        <!-- Open Unknowns -->
-        <section class="section animate-in" id="unknownsSection"></section>
-
-        <!-- Emerging Cross-Theme Tasks -->
-        <section class="section animate-in" id="crossTasksSection"></section>
+        <!-- Cross-Theme Intelligence (tabbed) -->
+        <section class="section animate-in" id="crossThemeSection" style="grid-column: 1 / -1;"></section>
       </main>
     </div>
 
     </div>
+
+    <!-- Floating AI FAB -->
+    <button class="ai-fab" id="aiFabBtn" onclick="toggleAIPanel()" title="Dashboard Assistant">✨</button>
+    <div class="ai-fab-panel" id="aiFabPanel"></div>
     
-    <script src="js/app.js?v=4" defer></script>
-    <script src="js/ai.js?v=4" defer></script>
-    <script src="js/overview.js?v=4" defer></script>
+    <script src="js/app.js?v=6" defer></script>
+    <script src="js/ai.js?v=5" defer></script>
+    <script src="js/overview.js?v=5" defer></script>
   </body>
 </html>

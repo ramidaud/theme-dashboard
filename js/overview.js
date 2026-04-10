@@ -6,28 +6,222 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     await store.load();
     renderNav('overview');
+    renderAtAGlance();
     renderThemeCards();
     renderMeetings();
     renderGlobalMeetingNotes();
-    renderPatterns();
-    renderUnknowns();
-    renderCrossTasks();
-    renderOverviewAI();
+    renderCrossThemeTabs();
+    renderFabAI();
 
     window.addEventListener('data-changed', () => {
+      renderAtAGlance();
       renderThemeCards();
       renderMeetings();
       renderGlobalMeetingNotes();
-      renderPatterns();
-      renderUnknowns();
-      renderCrossTasks();
-      // AI doesn't strictly need re-rendering on every data-change, but okay
+      renderCrossThemeTabs();
     });
   } catch (err) {
     console.error('Overview init error:', err);
     document.getElementById('app').innerHTML = `<div class="empty-state"><p>Error loading: ${err.message}</p></div>`;
   }
 });
+
+// ---- At a Glance Stats ----
+function renderAtAGlance() {
+  const section = document.getElementById('atAGlanceSection');
+  const themes = store.get('themes') || {};
+  const slugs = Object.keys(themes);
+  
+  let totalExplorations = 0, totalTasks = 0, totalUnknowns = 0, totalMeetings = 0;
+  
+  slugs.forEach(slug => {
+    const data = store.getThemeData(slug);
+    totalExplorations += (data.explorationLog || []).filter(e => e.status === 'Active').length;
+    totalTasks += (data.tasks || []).filter(t => t.status !== 'Done').length;
+  });
+  totalUnknowns = (store.get('unknowns') || []).length;
+  totalMeetings = (store.get('meetings') || []).length;
+
+  section.innerHTML = `
+    <div class="at-a-glance stagger-children">
+      <div class="glance-stat">
+        <div class="stat-value">${slugs.length}</div>
+        <div class="stat-label">Active Themes</div>
+      </div>
+      <div class="glance-stat">
+        <div class="stat-value">${totalExplorations}</div>
+        <div class="stat-label">Open Explorations</div>
+      </div>
+      <div class="glance-stat">
+        <div class="stat-value">${totalTasks}</div>
+        <div class="stat-label">Open Tasks</div>
+      </div>
+      <div class="glance-stat">
+        <div class="stat-value">${totalUnknowns}</div>
+        <div class="stat-label">Unknowns</div>
+      </div>
+      <div class="glance-stat">
+        <div class="stat-value">${totalMeetings}</div>
+        <div class="stat-label">Upcoming Meetings</div>
+      </div>
+    </div>
+  `;
+}
+
+// ---- Cross-Theme Tabbed Card ----
+let crossThemeTab = 'patterns';
+
+function renderCrossThemeTabs() {
+  const section = document.getElementById('crossThemeSection');
+  
+  // Gather data
+  const patterns = store.get('cross-patterns') || [];
+  const unknowns = store.get('unknowns') || [];
+  const tasks = store.get('cross-tasks') || [];
+
+  let patternsHtml = '';
+  if (patterns.length === 0) {
+    patternsHtml = '<div class="empty-state"><div class="empty-icon">🔗</div><p>No cross-theme patterns yet.</p></div>';
+  } else {
+    patternsHtml = '<div class="stagger-children">';
+    patterns.forEach(p => {
+      patternsHtml += `
+        <div class="pattern-card" style="--accent-color:${getThemeAccent(p.sourceTheme)}">
+          <div class="pattern-text">${escapeHtml(p.observation)}</div>
+          <div class="pattern-meta">
+            <div class="pattern-themes">
+              ${(p.relevantTo || []).map(t => `<span class="badge ${getThemeBadgeClass(t)}">${getThemeLabel(t)}</span>`).join(' ')}
+            </div>
+            <span class="pattern-author">${escapeHtml(p.addedBy)} · ${formatDate(p.dateAdded)}</span>
+          </div>
+          <button class="btn btn-sm btn-ghost btn-danger mt-2" onclick="deletePattern('${p.id}')">Remove</button>
+        </div>
+      `;
+    });
+    patternsHtml += '</div>';
+  }
+
+  let unknownsHtml = '';
+  if (unknowns.length === 0) {
+    unknownsHtml = '<div class="empty-state"><div class="empty-icon">❓</div><p>No open unknowns.</p></div>';
+  } else {
+    unknownsHtml = '<div class="stagger-children">';
+    unknowns.forEach(u => {
+      unknownsHtml += `
+        <div class="unknown-item">
+          <div class="unknown-question">${escapeHtml(u.question)}</div>
+          <div class="unknown-meta">
+            <span>Raised ${formatDate(u.dateRaised)}</span>
+            <span>Affects: ${(u.themesAffected || []).map(t => getThemeLabel(t)).join(', ')}</span>
+          </div>
+          <button class="btn btn-sm btn-ghost btn-danger mt-2" onclick="deleteUnknown('${u.id}')">Remove</button>
+        </div>
+      `;
+    });
+    unknownsHtml += '</div>';
+  }
+
+  let tasksHtml = '';
+  if (tasks.length === 0) {
+    tasksHtml = '<div class="empty-state"><div class="empty-icon">📋</div><p>No cross-theme tasks yet.</p></div>';
+  } else {
+    tasksHtml = `<div style="overflow-x:auto;"><table class="data-table"><thead><tr><th>Task</th><th>Owner</th><th>Due</th><th>Status</th><th></th></tr></thead><tbody class="stagger-children">`;
+    tasks.forEach(t => {
+      tasksHtml += `<tr>
+        <td class="task-name">${escapeHtml(t.task)}</td>
+        <td>${escapeHtml(t.owner)}</td>
+        <td>${formatDate(t.dueDate)}</td>
+        <td><select class="form-inline-select ${getStatusBadgeClass(t.status)}" onchange="updateCrossTaskStatus('${t.id}', this.value)">
+          ${['Not Started', 'In Progress', 'Done'].map(s => `<option value="${s}" ${t.status === s ? 'selected' : ''}>${s}</option>`).join('')}
+        </select></td>
+        <td><button class="btn btn-icon btn-ghost" onclick="deleteCrossTask('${t.id}')" title="Delete">🗑</button></td>
+      </tr>`;
+    });
+    tasksHtml += '</tbody></table></div>';
+  }
+
+  section.innerHTML = `
+    <div class="section-header">
+      <h2>Cross-Theme Intelligence</h2>
+      <div style="display:flex;gap:var(--space-2);">
+        <button class="btn btn-primary btn-sm" onclick="openAddPattern()">+ Pattern</button>
+        <button class="btn btn-primary btn-sm" onclick="openAddUnknown()">+ Unknown</button>
+        <button class="btn btn-primary btn-sm" onclick="openAddCrossTask()">+ Task</button>
+      </div>
+    </div>
+    <div class="tab-bar">
+      <button class="tab-btn ${crossThemeTab === 'patterns' ? 'active' : ''}" onclick="setCrossTab('patterns')">🔗 Patterns (${patterns.length})</button>
+      <button class="tab-btn ${crossThemeTab === 'unknowns' ? 'active' : ''}" onclick="setCrossTab('unknowns')">❓ Unknowns (${unknowns.length})</button>
+      <button class="tab-btn ${crossThemeTab === 'tasks' ? 'active' : ''}" onclick="setCrossTab('tasks')">📋 Tasks (${tasks.length})</button>
+    </div>
+    <div class="tab-panel ${crossThemeTab === 'patterns' ? 'active' : ''}">${patternsHtml}</div>
+    <div class="tab-panel ${crossThemeTab === 'unknowns' ? 'active' : ''}">${unknownsHtml}</div>
+    <div class="tab-panel ${crossThemeTab === 'tasks' ? 'active' : ''}">${tasksHtml}</div>
+  `;
+}
+
+window.setCrossTab = function(tab) {
+  crossThemeTab = tab;
+  renderCrossThemeTabs();
+};
+
+// ---- Floating AI FAB Panel ----
+function renderFabAI() {
+  const panel = document.getElementById('aiFabPanel');
+  const apiKey = localStorage.getItem('ted-openrouter-key');
+  
+  panel.innerHTML = `
+    <div style="padding: var(--space-4); border-bottom: 1px solid var(--color-border); display:flex; justify-content:space-between; align-items:center;">
+      <h4 style="margin:0;">✨ Dashboard Assistant</h4>
+      <button class="btn btn-ghost btn-sm" onclick="toggleAIPanel()">✕</button>
+    </div>
+    <div id="fabAiMessages" style="flex:1; overflow-y:auto; padding: var(--space-3);">
+      ${apiKey ? '<p class="text-sm text-muted" style="text-align:center; padding: var(--space-4);">Ask me anything about your themes...</p>' : '<div style="text-align:center; padding: var(--space-6);"><div style="font-size:24px; margin-bottom:var(--space-2);">🔑</div><p class="text-sm text-muted">Add your OpenRouter API key in Settings (⚙️) to activate.</p></div>'}
+    </div>
+    <div style="padding: var(--space-3); border-top: 1px solid var(--color-border);">
+      <div style="display:flex; gap:var(--space-2);">
+        <input type="text" class="form-input" id="fabAiInput" placeholder="Message Assistant..." style="flex:1;" onkeydown="if(event.key==='Enter'){sendFabAI();}">
+        <button class="btn btn-primary btn-sm" onclick="sendFabAI()">Send</button>
+      </div>
+    </div>
+  `;
+}
+
+window.toggleAIPanel = function() {
+  document.getElementById('aiFabPanel').classList.toggle('open');
+};
+
+window.sendFabAI = async function() {
+  const input = document.getElementById('fabAiInput');
+  const msg = input?.value?.trim();
+  if (!msg) return;
+  input.value = '';
+  
+  const container = document.getElementById('fabAiMessages');
+  container.innerHTML += `<div style="background:var(--color-primary-light);padding:var(--space-2) var(--space-3);border-radius:var(--radius-md);margin-bottom:var(--space-2);font-size:var(--text-sm);">${escapeHtml(msg)}</div>`;
+  container.innerHTML += `<div id="fabAiLoading" style="padding:var(--space-2);font-size:var(--text-xs);color:var(--color-text-tertiary);">Thinking...</div>`;
+  container.scrollTop = container.scrollHeight;
+
+  try {
+    if (typeof window.sendOverviewMessage === 'function') {
+      await window.sendOverviewMessage(msg);
+      const loading = document.getElementById('fabAiLoading');
+      if (loading) loading.remove();
+      // The AI chat history is maintained in ai.js; grab the last assistant message
+      if (window.aiChatHistory) {
+        const lastMsg = window.aiChatHistory[window.aiChatHistory.length - 1];
+        if (lastMsg && lastMsg.role === 'assistant') {
+          container.innerHTML += `<div style="background:var(--color-surface);border:1px solid var(--color-border);padding:var(--space-2) var(--space-3);border-radius:var(--radius-md);margin-bottom:var(--space-2);font-size:var(--text-sm);">${escapeHtml(lastMsg.content)}</div>`;
+        }
+      }
+    }
+  } catch(e) {
+    const loading = document.getElementById('fabAiLoading');
+    if (loading) loading.textContent = '❌ ' + e.message;
+  }
+  container.scrollTop = container.scrollHeight;
+};
+
 
 // ---- Theme Status Cards ----
 function renderThemeCards() {

@@ -8,41 +8,36 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=13">
+  <link rel="stylesheet" href="css/styles.css?v=14">
 </head>
 <body>
   <div class="master-container">
     <header class="hero" id="themeHeader"></header>
 
   <div class="container">
-    <main id="app" class="data-wall">
-      <!-- People -->
-      <section class="section animate-in" id="peopleSection" style="grid-column: 1 / -1;"></section>
+    <!-- People (compact pill row) -->
+    <section class="section animate-in" id="peopleSection"></section>
 
-      <!-- Strategic Proof Points -->
-      <section class="section animate-in" id="proofPointsSection" style="grid-column: 1 / -1;"></section>
+    <!-- 2-Column Layout -->
+    <div class="theme-content-2col">
+      <div class="theme-col-left">
+        <section class="section animate-in" id="explorationSection"></section>
+        <section class="section animate-in" id="meetingNotesSection"></section>
+      </div>
+      <div class="theme-col-right">
+        <section class="section animate-in" id="tasksSection"></section>
+        <section class="section animate-in" id="recommendationsSection"></section>
+      </div>
+    </div>
 
-      <!-- Exploration Log -->
-      <section class="section animate-in" id="explorationSection"></section>
-
-      <!-- Meeting Notes -->
-      <section class="section animate-in" id="meetingNotesSection"></section>
-
-      <!-- Tasks -->
-      <section class="section animate-in" id="tasksSection"></section>
-
-      <!-- Recommendations -->
-      <section class="section animate-in" id="recommendationsSection"></section>
-
-      <!-- Theme Notes -->
-      <section class="section animate-in" id="themeNotesSection"></section>
-    </main>
+    <!-- Theme Notes (full width) -->
+    <section class="section animate-in" id="themeNotesSection"></section>
   </div>
 
   </div>
 
-  <script src="js/app.js?v=4" defer></script>
-  <script src="js/ai.js?v=4" defer></script>
-  <script src="js/theme.js?v=4" defer></script>
+  <script src="js/app.js?v=6" defer></script>
+  <script src="js/ai.js?v=5" defer></script>
+  <script src="js/theme.js?v=5" defer></script>
 </body>
 </html>

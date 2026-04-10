@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   renderHeader();
   renderPeople();
-  renderProofPoints();
   renderExplorationLog();
   renderMeetingNotes();
   renderTasks();
@@ -32,7 +31,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (e.detail.collection === currentTheme || e.detail.collection === 'themes') {
       renderHeader();
       renderPeople();
-      renderProofPoints();
       renderExplorationLog();
       renderMeetingNotes();
       renderTasks();
@@ -41,15 +39,29 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 });
 
-// ---- Header ----
+// ---- Header (with proof point badges) ----
 function renderHeader() {
   const meta = store.getThemeMeta(currentTheme);
   if (!meta) return;
   const header = document.getElementById('themeHeader');
+  const data = store.getThemeData(currentTheme);
   
   header.style.backgroundImage = `url('images/${currentTheme}-header.jpg')`;
 
   const nbLink = localStorage.getItem('ted-notebooklm-link') || '';
+
+  // Build proof point badges for the header
+  const metrics = data.keyMetrics || [];
+  const partners = data.partnerships || [];
+  const competitors = data.competitors || [];
+  let badgesHtml = '';
+  if (metrics.length || partners.length || competitors.length) {
+    badgesHtml = `<div class="hero-badges">`;
+    metrics.forEach(m => badgesHtml += `<span class="hero-badge hero-badge--metric">🏆 ${escapeHtml(m)}</span>`);
+    partners.forEach(p => badgesHtml += `<span class="hero-badge hero-badge--partner">🎯 ${escapeHtml(p)}</span>`);
+    competitors.forEach(c => badgesHtml += `<span class="hero-badge hero-badge--competitor">⚔️ ${escapeHtml(c)}</span>`);
+    badgesHtml += `</div>`;
+  }
 
   header.innerHTML = `
     <div class="container">
@@ -60,6 +72,7 @@ function renderHeader() {
             ${escapeHtml(meta.name)}
           </h1>
           <p class="hero-subtitle">Facilitated by ${escapeHtml(meta.facilitator)}</p>
+          ${badgesHtml}
         </div>
         <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-2);">
           ${nbLink ? `<a href="${escapeHtml(nbLink)}" target="_blank" class="btn btn-secondary btn-sm" style="background:rgba(255,255,255,0.9);color:var(--color-primary);border:none;box-shadow:var(--shadow-sm);">📓 NotebookLM</a>` : ''}
@@ -70,42 +83,36 @@ function renderHeader() {
   `;
 }
 
-// ---- People ----
+// ---- People (compact pills) ----
 function renderPeople() {
   const section = document.getElementById('peopleSection');
   const allPeople = store.get('people') || [];
   const themePeople = allPeople.filter(p => (p.themes || []).includes(currentTheme));
   
-  // Sort alphabetically
   themePeople.sort((a,b) => a.name.localeCompare(b.name));
 
   let html = `
     <div class="section-header">
-      <h2>People</h2>
+      <div style="display:flex;align-items:center;gap:var(--space-3);">
+        <h2 style="margin-bottom:0;">People</h2>
+      </div>
       <a href="people.html" class="btn btn-secondary btn-sm" style="box-shadow:var(--shadow-sm);">Manage Directory</a>
     </div>
   `;
     
   if (themePeople.length === 0) {
-    html += `
-      <div class="empty-state"><div class="empty-icon">👥</div><p>No people assigned to this theme. Add them in the People Directory.</p></div>
-    `;
+    html += `<div class="empty-state"><div class="empty-icon">👥</div><p>No people assigned to this theme.</p></div>`;
   } else {
-    html += `
-      <div class="grid-3 stagger-children" style="margin-bottom:var(--space-8);">
-        ${themePeople.map(p => `
-          <div class="card" style="padding: var(--space-4); display:flex; align-items:center; gap: var(--space-3); border-left:3px solid var(--accent-color, var(--color-primary));">
-            <div style="width:40px; height:40px; border-radius:50%; background:var(--color-primary-light); color:var(--color-primary); display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:var(--text-md); flex-shrink:0;">
-              ${p.name.charAt(0).toUpperCase()}
-            </div>
-            <div style="min-width:0; flex:1;">
-              <div style="font-weight:600; font-size:var(--text-sm); color:var(--color-text-primary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(p.name)}</div>
-              <div style="font-size:var(--text-xs); color:var(--color-text-secondary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(p.role)}</div>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    `;
+    html += `<div class="people-pill-row">`;
+    themePeople.forEach(p => {
+      html += `
+        <div class="people-pill" title="${escapeHtml(p.role)}">
+          <span class="pill-avatar">${p.name.charAt(0).toUpperCase()}</span>
+          ${escapeHtml(p.name)}
+        </div>
+      `;
+    });
+    html += `</div>`;
   }
   
   section.innerHTML = html;
@@ -777,33 +784,66 @@ window.openAddRecommendation = function () {
   });
 };
 
-// ---- Theme Notes (scratchpad) ----
+// ---- Theme Notes (rendered markdown with edit toggle) ----
 let noteSaveTimer = null;
+let notesEditMode = false;
+
+function simpleMarkdown(text) {
+  if (!text) return '<p class="text-muted">No notes yet.</p>';
+  let html = escapeHtml(text);
+  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+  html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+  html = html.replace(/^\- (.+)$/gm, '<li>$1</li>');
+  html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+  html = html.replace(/\n\n/g, '</p><p>');
+  html = html.replace(/\n/g, '<br>');
+  if (!html.startsWith('<')) html = '<p>' + html + '</p>';
+  return html;
+}
 
 function renderThemeNotes() {
   const section = document.getElementById('themeNotesSection');
   const data = store.getThemeData(currentTheme);
 
-  section.innerHTML = `
-    <div class="section-header">
-      <h2>Theme Notes</h2>
-      <span class="text-xs text-muted" id="notesSaveStatus"></span>
-    </div>
-    <textarea class="scratchpad" id="themeNotesArea" placeholder="Freeform notes, ideas, links — anything that doesn't fit elsewhere...">${escapeHtml(data.themeNotes || '')}</textarea>
-  `;
+  if (notesEditMode) {
+    section.innerHTML = `
+      <div class="section-header">
+        <h2>Theme Notes</h2>
+        <div style="display:flex;align-items:center;gap:var(--space-2);">
+          <span class="text-xs text-muted" id="notesSaveStatus"></span>
+          <button class="btn btn-secondary btn-sm" onclick="toggleNotesEdit()">Done</button>
+        </div>
+      </div>
+      <textarea class="scratchpad" id="themeNotesArea" placeholder="Freeform notes, ideas, links...">${escapeHtml(data.themeNotes || '')}</textarea>
+    `;
 
-  document.getElementById('themeNotesArea').addEventListener('input', (e) => {
-    clearTimeout(noteSaveTimer);
-    document.getElementById('notesSaveStatus').textContent = 'Saving...';
-    noteSaveTimer = setTimeout(() => {
-      const data = store.getThemeData(currentTheme);
-      data.themeNotes = e.target.value;
-      store.saveThemeData(currentTheme, data);
-      document.getElementById('notesSaveStatus').textContent = 'Saved ✓';
-      setTimeout(() => {
-        const el = document.getElementById('notesSaveStatus');
-        if (el) el.textContent = '';
-      }, 2000);
-    }, 500);
-  });
+    document.getElementById('themeNotesArea').addEventListener('input', (e) => {
+      clearTimeout(noteSaveTimer);
+      document.getElementById('notesSaveStatus').textContent = 'Saving...';
+      noteSaveTimer = setTimeout(() => {
+        const data = store.getThemeData(currentTheme);
+        data.themeNotes = e.target.value;
+        store.saveThemeData(currentTheme, data);
+        document.getElementById('notesSaveStatus').textContent = 'Saved ✓';
+        setTimeout(() => {
+          const el = document.getElementById('notesSaveStatus');
+          if (el) el.textContent = '';
+        }, 2000);
+      }, 500);
+    });
+  } else {
+    section.innerHTML = `
+      <div class="section-header">
+        <h2>Theme Notes</h2>
+        <button class="btn btn-secondary btn-sm" onclick="toggleNotesEdit()">✏️ Edit</button>
+      </div>
+      <div class="rendered-notes">${simpleMarkdown(data.themeNotes || '')}</div>
+    `;
+  }
 }
+
+window.toggleNotesEdit = function() {
+  notesEditMode = !notesEditMode;
+  renderThemeNotes();
+};
