@@ -748,7 +748,7 @@ function renderOverviewAI() {
       <div class="ai-no-key">
         <div style="font-size:2.5rem;margin-bottom:var(--space-2);">🔑</div>
         <h3 style="margin-bottom:var(--space-2);">API Key Required</h3>
-        <p>Add your Gemini API key in Settings (⚙️) to activate the assistant.</p>
+        <p>Add your OpenRouter API key in Settings (⚙️) to activate the assistant.</p>
       </div>
     `;
   } else if (embeddedAiChatHistory.length === 0) {

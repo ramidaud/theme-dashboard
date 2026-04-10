@@ -2,8 +2,8 @@
    Theme Exploration Dashboard — Gemini AI Integration
    ============================================================ */
 
-const GEMINI_MODEL = 'gemini-2.0-flash';
-const GEMINI_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models';
+const OPENROUTER_MODEL = 'google/gemini-2.0-pro-exp-0205:free';
+const OPENROUTER_ENDPOINT = 'https://openrouter.ai/api/v1/chat/completions';
 
 function getApiKey() {
   return localStorage.getItem('ted-gemini-key') || '';
@@ -136,15 +136,24 @@ Answer the user's question based on this data. Be concise, helpful, and specific
 
     messages.push({ role: 'user', parts: [{ text: query }] });
 
-    const response = await fetch(`${GEMINI_ENDPOINT}/${GEMINI_MODEL}:generateContent?key=${apiKey}`, {
+    const openAiMessages = messages.map(m => ({
+      role: m.role === 'model' ? 'assistant' : m.role,
+      content: m.parts[0].text
+    }));
+
+    const response = await fetch(OPENROUTER_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+        'HTTP-Referer': window.location.href, // Required by OpenRouter
+        'X-Title': 'Theme Exploration Dashboard' // Required by OpenRouter
+      },
       body: JSON.stringify({
-        contents: messages,
-        generationConfig: {
-          temperature: 0.7,
-          maxOutputTokens: 1024
-        }
+        model: OPENROUTER_MODEL,
+        messages: openAiMessages,
+        temperature: 0.7,
+        max_tokens: 1024
       })
     });
 
@@ -155,7 +164,7 @@ Answer the user's question based on this data. Be concise, helpful, and specific
     }
 
     const result = await response.json();
-    const aiText = result.candidates?.[0]?.content?.parts?.[0]?.text || 'No response generated.';
+    const aiText = result.choices?.[0]?.message?.content || 'No response generated.';
 
     aiChatHistory.push({ role: 'assistant', content: aiText });
     renderAIMessages();
@@ -246,15 +255,19 @@ Return this JSON structure:
 Be specific and extract only what is clearly stated or strongly implied. Keep items concise.`;
 
   try {
-    const response = await fetch(`${GEMINI_ENDPOINT}/${GEMINI_MODEL}:generateContent?key=${apiKey}`, {
+    const response = await fetch(OPENROUTER_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+        'HTTP-Referer': window.location.href,
+        'X-Title': 'Theme Exploration Dashboard'
+      },
       body: JSON.stringify({
-        contents: [{ role: 'user', parts: [{ text: prompt }] }],
-        generationConfig: {
-          temperature: 0.3,
-          maxOutputTokens: 1024
-        }
+        model: OPENROUTER_MODEL,
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.3,
+        max_tokens: 1024
       })
     });
 
@@ -265,7 +278,7 @@ Be specific and extract only what is clearly stated or strongly implied. Keep it
     }
 
     const result = await response.json();
-    let text = result.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    let text = result.choices?.[0]?.message?.content || '';
 
     // Clean up markdown code fences if present
     text = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
@@ -393,12 +406,25 @@ window.renderAISuggestions = renderAISuggestions;
 window.geminiRequest = async function(messages) {
   const apiKey = getApiKey();
   if (!apiKey) throw new Error('API key missing');
-  const response = await fetch(`${GEMINI_ENDPOINT}/${GEMINI_MODEL}:generateContent?key=${apiKey}`, {
+  
+  const openAiMessages = messages.map(m => ({
+    role: m.role === 'model' ? 'assistant' : m.role,
+    content: m.parts[0].text
+  }));
+
+  const response = await fetch(OPENROUTER_ENDPOINT, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`,
+      'HTTP-Referer': window.location.href,
+      'X-Title': 'Theme Exploration Dashboard'
+    },
     body: JSON.stringify({
-      contents: messages,
-      generationConfig: { temperature: 0.3, maxOutputTokens: 1024 }
+      model: OPENROUTER_MODEL,
+      messages: openAiMessages,
+      temperature: 0.3,
+      max_tokens: 1024
     })
   });
   if (!response.ok) {

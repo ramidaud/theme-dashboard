@@ -513,7 +513,7 @@ function openSettings() {
       </div>
       <div class="settings-body">
         <div class="form-group">
-          <label>Gemini API Key</label>
+          <label>OpenRouter API Key</label>
           ${
             hasKey
               ? `
@@ -523,13 +523,12 @@ function openSettings() {
             </div>
           `
               : `
-            <input type="password" class="form-input" id="apiKeyInput" placeholder="Paste your Gemini API key here" value="">
+            <input type="password" class="form-input" id="apiKeyInput" placeholder="Paste your OpenRouter API key here" value="">
             <button class="btn btn-primary btn-sm mt-2" id="saveApiKey">Save Key</button>
           `
           }
           <p class="settings-info">
-            Get a free API key from <a href="https://aistudio.google.com/apikey" target="_blank">Google AI Studio</a>.
-            Your key is stored only in your browser.
+            Get a free API key from <a href="https://openrouter.ai/keys" target="_blank">OpenRouter</a> to use state-of-the-art models entirely for free on GitHub Pages. Your key stays in your browser.
           </p>
         </div>
 
