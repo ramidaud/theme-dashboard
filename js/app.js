@@ -184,6 +184,7 @@ function renderNav(activePage) {
   nav.className = "sidebar";
   nav.innerHTML = `
     <div class="sidebar-header">
+      <img src="images/kent-logo.png" alt="Kent State University" style="max-height: 48px; margin-bottom: 24px; display: block;">
       <a href="index.html" class="nav-brand">Theme Explorer</a>
     </div>
     <div class="sidebar-section">
