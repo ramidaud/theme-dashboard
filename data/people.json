@@ -33,7 +33,9 @@
     "role": "Vice President for University Communications and Marketing",
     "email": "sward52@kent.edu",
     "themes": [
-      "design"
+      "design",
+      "global",
+      "health"
     ]
   },
   {
@@ -61,6 +63,17 @@
     "email": "paulo@kent.edu",
     "themes": [
       "global"
+    ]
+  },
+  {
+    "id": "p-8",
+    "name": "Rebecca Murphy",
+    "role": "Senior Associate Vice President of University Communications and Marketing",
+    "email": "rmurph20@kent.edu",
+    "themes": [
+      "design",
+      "global",
+      "health"
     ]
   }
 ]
