@@ -1,44 +1,66 @@
 [
   {
     "id": "p-1",
-    "name": "Liz",
-    "role": "Strategic Communications Lead",
-    "email": "liz@kent.edu",
-    "themes": ["design"]
+    "name": "Rami Daud",
+    "role": "Senior Photographer",
+    "email": "rdaud@kent.edu",
+    "themes": [
+      "design"
+    ]
   },
   {
     "id": "p-2",
-    "name": "Kaitlyn",
-    "role": "Content Specialist",
-    "email": "k.student@kent.edu",
-    "themes": ["design"]
+    "name": "Katlyn Degraw",
+    "role": "Marketing Communications Senior Project Manager",
+    "email": "kdegraw@kent.edu",
+    "themes": [
+      "global",
+      "design"
+    ]
   },
   {
     "id": "p-3",
-    "name": "Paulo",
-    "role": "Dean, Honors & Global Education",
-    "email": "paulo@kent.edu",
-    "themes": ["global"]
+    "name": "Gabrielle Mingrone DelVecchio",
+    "role": "Marketing Communications Senior Project Manager",
+    "email": "gmingron@kent.edu",
+    "themes": [
+      "health"
+    ]
   },
   {
     "id": "p-4",
-    "name": "UCM Team",
-    "role": "Marketing Support",
-    "email": "ucm@kent.edu",
-    "themes": ["global", "design"]
+    "name": "Stephen P. Ward",
+    "role": "Vice President for University Communications and Marketing",
+    "email": "sward52@kent.edu",
+    "themes": [
+      "design"
+    ]
   },
   {
     "id": "p-5",
-    "name": "SW (Steven)",
-    "role": "Design Executive",
-    "email": "sw@kent.edu",
-    "themes": ["design"]
+    "name": "Jason Zehner",
+    "role": "University Communications and Marketing",
+    "email": "jzehner@kent.edu",
+    "themes": [
+      "design"
+    ]
   },
   {
     "id": "p-6",
-    "name": "JZ (John)",
-    "role": "Design Director",
-    "email": "jz@kent.edu",
-    "themes": ["design"]
+    "name": "Liz Henry",
+    "role": "Senior Director Marketing Research & Strategy",
+    "email": "ehenry5@kent.edu",
+    "themes": [
+      "design"
+    ]
+  },
+  {
+    "id": "p-7",
+    "name": "Paulo",
+    "role": "Dean, Honors and Global Education",
+    "email": "paulo@kent.edu",
+    "themes": [
+      "global"
+    ]
   }
 ]

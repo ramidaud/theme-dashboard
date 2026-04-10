@@ -5,7 +5,7 @@
       "type": "Idea",
       "title": "Excellence Without Borders",
       "details": "Proposed messaging framework drafted by UCM to communicate the value proposition of the newly merged college.",
-      "raisedBy": "UCM Team",
+      "raisedBy": "Katlyn Degraw",
       "dateAdded": "2026-01-23",
       "status": "Active"
     },
@@ -40,7 +40,7 @@
     {
       "id": "task-g-2",
       "task": "Expand targeting for Active Markets",
-      "owner": "UCM Team",
+      "owner": "Katlyn Degraw",
       "dueDate": "2026-05-01",
       "status": "Not Started",
       "source": "Strategy Meeting"

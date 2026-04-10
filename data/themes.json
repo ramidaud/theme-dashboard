@@ -2,28 +2,45 @@
   "design": {
     "name": "Design",
     "slug": "design",
-    "facilitator": "Liz",
+    "facilitator": "Rami Daud",
     "accent": "#2C8ECD",
     "status": "Active Exploration",
-    "participants": ["Liz", "Kaitlyn", "SW", "JZ", "UCM Team"],
-    "stakeholders": ["CAE Focus Groups", "CCI Focus Groups"]
+    "participants": [
+      "Rami Daud",
+      "Katlyn Degraw",
+      "Stephen P. Ward",
+      "Jason Zehner",
+      "Liz Henry"
+    ],
+    "stakeholders": [
+      "CAE Focus Groups",
+      "CCI Focus Groups"
+    ]
   },
   "global": {
     "name": "Global/Honors",
     "slug": "global",
-    "facilitator": "Paulo",
+    "facilitator": "Katlyn Degraw",
     "accent": "#EFAB00",
     "status": "Needs Discussion",
-    "participants": ["Paulo", "UCM Team"],
-    "stakeholders": ["Honors College", "Global Education"]
+    "participants": [
+      "Katlyn Degraw",
+      "Paulo"
+    ],
+    "stakeholders": [
+      "Honors College",
+      "Global Education"
+    ]
   },
   "health": {
     "name": "Health",
     "slug": "health",
-    "facilitator": "UCM Team",
+    "facilitator": "Gabrielle Mingrone DelVecchio",
     "accent": "#E07A3A",
     "status": "Converging",
-    "participants": ["UCM Team", "Brain Health Research Institute"],
+    "participants": [
+      "Gabrielle Mingrone DelVecchio"
+    ],
     "stakeholders": [
       "College of Public Health Dean",
       "Nursing Program Director",

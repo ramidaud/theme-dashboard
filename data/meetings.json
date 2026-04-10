@@ -4,20 +4,20 @@
     "title": "Design Excellence Evaluation",
     "theme": "design",
     "date": "2026-03-10",
-    "attendees": ["Liz", "Kaitlyn", "UCM Team"]
+    "attendees": ["Liz Henry", "Katlyn Degraw", "Rami Daud"]
   },
   {
     "id": "mtg-2",
     "title": "Global Market Review",
     "theme": "global",
     "date": "2026-04-15",
-    "attendees": ["Paulo", "UCM Team"]
+    "attendees": ["Paulo", "Katlyn Degraw"]
   },
   {
     "id": "mtg-3",
     "title": "Public Health Focus Check",
     "theme": "health",
     "date": "2026-04-01",
-    "attendees": ["UCM Team", "Dean"]
+    "attendees": ["Gabrielle Mingrone DelVecchio"]
   }
 ]

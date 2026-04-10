@@ -5,7 +5,7 @@
       "type": "Insight",
       "title": "Two Student Pathways into Design",
       "details": "Students fall into two categories: Early Fascination (knew they wanted design early) and Late Discovery (transferred or found later). Need messaging supporting both.",
-      "raisedBy": "Kaitlyn",
+      "raisedBy": "Katlyn Degraw",
       "dateAdded": "2026-02-24",
       "status": "Active"
     },
@@ -14,7 +14,7 @@
       "type": "Idea",
       "title": "Reframing \"Design Excellence\"",
       "details": "Excellence shouldn't be defined just by comparing to SCAD or RISD, but by interdisciplinary mobility, career outcomes, and intellectual curiosity.",
-      "raisedBy": "SW",
+      "raisedBy": "Stephen P. Ward",
       "dateAdded": "2026-02-24",
       "status": "Converging"
     },
@@ -23,7 +23,7 @@
       "type": "Question",
       "title": "Visual Evidence of Hands-on Experience?",
       "details": "Alumni stories were explicitly requested by students, wanting to see design in action. How do we produce this cohesively?",
-      "raisedBy": "Liz",
+      "raisedBy": "Liz Henry",
       "dateAdded": "2026-02-24",
       "status": "Active"
     }
@@ -32,7 +32,7 @@
     {
       "id": "task-d-1",
       "task": "Identify differentiators through competitor research",
-      "owner": "UCM Team",
+      "owner": "Katlyn Degraw",
       "dueDate": "2026-03-10",
       "status": "Not Started",
       "source": "Strategy Meeting"
@@ -40,7 +40,7 @@
     {
       "id": "task-d-2",
       "task": "Upload comprehensive research slides from focus groups",
-      "owner": "Liz",
+      "owner": "Liz Henry",
       "dueDate": "2026-02-28",
       "status": "In Progress",
       "source": "Strategy Meeting"
@@ -48,7 +48,7 @@
     {
       "id": "task-d-3",
       "task": "Develop cohesive CTA language for design stories",
-      "owner": "Kaitlyn",
+      "owner": "Katlyn Degraw",
       "dueDate": "2026-03-15",
       "status": "Not Started",
       "source": "Strategy Meeting"
