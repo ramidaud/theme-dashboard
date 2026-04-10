@@ -2,8 +2,12 @@
    Theme Exploration Dashboard — Gemini AI Integration
    ============================================================ */
 
-// AI requests go to our secure serverless proxy — no API key needed on the client.
-const AI_PROXY = '/api/chat';
+const GEMINI_MODEL = 'gemini-2.0-flash';
+const GEMINI_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models';
+
+function getApiKey() {
+  return localStorage.getItem('ted-gemini-key') || '';
+}
 
 // ---- AI Chat State ----
 let aiDrawerEl = null;
@@ -50,6 +54,18 @@ function renderAIMessages() {
   const container = document.getElementById('aiMessages');
   if (!container) return;
 
+  const apiKey = getApiKey();
+  if (!apiKey) {
+    container.innerHTML = `
+      <div class="ai-no-key">
+        <div style="font-size:2rem;margin-bottom:var(--space-4);">🔑</div>
+        <p>To use the AI assistant, add your Gemini API key in Settings (⚙️).</p>
+        <p style="margin-top:var(--space-2);">Get a free key from <a href="https://aistudio.google.com/apikey" target="_blank" style="color:var(--color-primary)">Google AI Studio</a>.</p>
+      </div>
+    `;
+    return;
+  }
+
   if (aiChatHistory.length === 0) {
     container.innerHTML = `
       <div class="ai-no-key">
@@ -86,6 +102,9 @@ async function sendAIMessage() {
   const query = input.value.trim();
   if (!query) return;
 
+  const apiKey = getApiKey();
+  if (!apiKey) return;
+
   input.value = '';
   aiChatHistory.push({ role: 'user', content: query });
   renderAIMessages();
@@ -117,7 +136,7 @@ Answer the user's question based on this data. Be concise, helpful, and specific
 
     messages.push({ role: 'user', parts: [{ text: query }] });
 
-    const response = await fetch(AI_PROXY, {
+    const response = await fetch(`${GEMINI_ENDPOINT}/${GEMINI_MODEL}:generateContent?key=${apiKey}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -201,6 +220,12 @@ function buildThemeContext() {
 
 // ---- AI Extraction from Meeting Notes ----
 async function extractFromMeetingNotes(meetingNote, themeSlug) {
+  const apiKey = getApiKey();
+  if (!apiKey) {
+    alert('Please add your Gemini API key in Settings (⚙️) to use AI extraction.');
+    return null;
+  }
+
   const prompt = `Analyze the following meeting notes and extract structured items. Return ONLY valid JSON with no markdown formatting.
 
 Meeting Date: ${meetingNote.date}
@@ -221,7 +246,7 @@ Return this JSON structure:
 Be specific and extract only what is clearly stated or strongly implied. Keep items concise.`;
 
   try {
-    const response = await fetch(AI_PROXY, {
+    const response = await fetch(`${GEMINI_ENDPOINT}/${GEMINI_MODEL}:generateContent?key=${apiKey}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -366,7 +391,9 @@ window.dismissSuggestion = function (idx) {
 window.extractFromMeetingNotes = extractFromMeetingNotes;
 window.renderAISuggestions = renderAISuggestions;
 window.geminiRequest = async function(messages) {
-  const response = await fetch(AI_PROXY, {
+  const apiKey = getApiKey();
+  if (!apiKey) throw new Error('API key missing');
+  const response = await fetch(`${GEMINI_ENDPOINT}/${GEMINI_MODEL}:generateContent?key=${apiKey}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -377,7 +404,7 @@ window.geminiRequest = async function(messages) {
   if (!response.ok) {
     const err = await response.json();
     if (response.status === 429) throw new Error('Rate limit reached — please wait a moment and try again.');
-    throw new Error(err.error || 'API request failed');
+    throw new Error(err.error?.message || 'API request failed');
   }
   return await response.json();
 };
